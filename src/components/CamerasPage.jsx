@@ -26,7 +26,7 @@ function parseInput(raw) {
   };
 }
 
-// Modal добавления камеры
+
 function AddCameraModal({ onAdd, onClose }) {
   const [input, setInput] = useState('192.168.1.');
   const [name, setName] = useState('');
@@ -101,7 +101,6 @@ function AddCameraModal({ onAdd, onClose }) {
   );
 }
 
-// Карточка камеры
 function CameraCard({ cam, tick, onRemove }) {
   const [status, setStatus] = useState('loading');
   const streamUrl = `http://${cam.ip}:${cam.port}/shot.jpg?t=${tick}`;
@@ -139,6 +138,11 @@ function CameraCard({ cam, tick, onRemove }) {
 
           {status === 'offline' && (
               <div className="camera-offline-overlay">
+                <svg viewBox="0 0 48 48" fill="none" width="40" height="40">
+                  <rect x="4" y="12" width="40" height="28" rx="4" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="24" cy="26" r="7" stroke="currentColor" strokeWidth="2"/>
+                  <line x1="8" y1="8" x2="40" y2="40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+                </svg>
                 <p>Отключено</p>
                 <span>{cam.ip}:{cam.port}</span>
               </div>

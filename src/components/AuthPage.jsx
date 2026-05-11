@@ -29,16 +29,10 @@ const EyeOffIcon = () => (
 
 
 function pinStrength(pin) {
-    if (pin.length < 4)  return { level: 0, label: '', color: '' };
-    if (pin.length < 6)  return { level: 1, label: 'Слабый',   color: '#ff3b30' };
-    if (pin.length < 8)  return { level: 2, label: 'Средний', color: '#ff9500' };
     const hasLetter = /[a-zA-Z]/.test(pin);
     const hasNum    = /\d/.test(pin);
     const hasSpec   = /[^a-zA-Z0-9]/.test(pin);
     const score = [hasLetter, hasNum, hasSpec].filter(Boolean).length;
-    if (score === 3)     return { level: 4, label: 'Надежный',  color: '#34c759' };
-    if (score === 2)     return { level: 3, label: 'Хороший',    color: '#30d158' };
-    return { level: 2, label: 'Средний',  color: '#ff9500' };
 }
 
 function PinInput({ value, onChange, placeholder, onKeyDown, autoFocus }) {
@@ -100,7 +94,6 @@ export default function AuthPage({ onLogin }) {
     const [shake, setShake]         = useState(false);
 
     const account  = loadAccount();
-    const strength = pinStrength(pin);
 
     function triggerShake() {
         setShake(true);
@@ -123,8 +116,6 @@ export default function AuthPage({ onLogin }) {
         if (!name.trim())        { setError('Пожалуйста, введите имя'); return; }
         if (name.trim().length < 2) { setError('Имя должно быть не менее 2 символов'); return; }
         if (pin.length < 4)      { setError('PIN-код должен быть не менее 4 символов'); return; }
-        if (pin !== pinConfirm)  { setError('PIN-коды не совпадают'); return; }
-
         const newAcc = { name: name.trim(), avatarId, pin, createdAt: new Date().toISOString() };
         saveAccount(newAcc);
         onLogin(newAcc);
@@ -192,42 +183,10 @@ export default function AuthPage({ onLogin }) {
                                onChange={e => { setName(e.target.value); setError(''); }}
                                onKeyDown={handleKey} />
 
-                        {name && (
-                            <div className="auth-preview">
-                                <span className="auth-preview-name">{name}</span>
-                            </div>
-                        )}
-
                         <label className="auth-label" style={{marginTop:14}}>PIN-код</label>
                         <PinInput value={pin} onChange={v => { setPin(v); setError(''); }}
                                   placeholder="Мин. 4 символа (буквы, цифры, знаки)"
                                   onKeyDown={handleKey} />
-
-                        {/* Индикатор надежности PIN-кода */}
-                        {pin.length > 0 && (
-                            <div className="auth-strength">
-                                <div className="auth-strength-bars">
-                                    {[1,2,3,4].map(i => (
-                                        <div key={i} className="auth-strength-bar"
-                                             style={{ background: strength.level >= i ? strength.color : 'var(--border-strong)' }} />
-                                    ))}
-                                </div>
-                                <span style={{ color: strength.color, fontSize: 11, fontWeight: 600 }}>
-                  {strength.label}
-                </span>
-                            </div>
-                        )}
-
-                        <label className="auth-label" style={{marginTop:12}}>Подтвердите PIN</label>
-                        <PinInput value={pinConfirm} onChange={v => { setPinConfirm(v); setError(''); }}
-                                  placeholder="Повторите PIN-код" onKeyDown={handleKey} />
-
-                        {pinConfirm.length > 0 && (
-                            <p style={{ fontSize:12, marginTop:5, fontWeight:600,
-                                color: pin === pinConfirm ? '#34c759' : '#ff3b30' }}>
-                                {pin === pinConfirm ? '✓ PIN-коды совпадают' : '✗ PIN-коды не совпадают'}
-                            </p>
-                        )}
 
                         {error && <p className="auth-error" style={{marginTop:8}}>{error}</p>}
 

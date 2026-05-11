@@ -4,14 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5ee23b0-be0c-43f6-bc37-2845d98be70c" name="Changes" comment="" />
+    <list default="true" id="f5ee23b0-be0c-43f6-bc37-2845d98be70c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/analyticsApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/analyticsApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CamerasPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CamerasPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="31" />
+    <option name="cachedIndexableFilesCount" value="33" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/AuthPage.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/CalendarPanel.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/components/CamerasPage.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/SecondCalendarPanel.jsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -36,7 +52,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
     "javascript.preferred.runtime.type.id": "node",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778495472150</updated>
-      <workItem from="1778495477648" duration="3566000" />
+      <workItem from="1778495477648" duration="9294000" />
     </task>
     <servers />
   </component>

@@ -1,8 +1,8 @@
 
-const USE_MOCK = true; // <-- false qiling, real API ga o'tish uchun
+const USE_MOCK = true;
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://your-api.com/api';
 
-// ── Shared fetch helper ──────────────────────────────────────────
+
 async function apiFetch(endpoint, options = {}) {
   const res = await fetch(`${BASE_URL}${endpoint}`, {
     headers: {
@@ -75,18 +75,16 @@ const MOCK = {
     await delay(450);
     return {
       weekly: [
-        { name: 'Male',    value: 34.2, color: '#1a1d23' },
-        { name: 'Female',  value: 28.5, color: '#7ec87e' },
-        { name: 'Kids',    value: 18.7, color: '#4a90d9' },
-        { name: 'Elderly', value: 11.6, color: '#e67e22' },
-        { name: 'Unknown', value:  7.0, color: '#e8eaf0' },
+        { name: 'Мужчины', value: 34.2, color: '#1a1d23' },
+        { name: 'Женщины', value: 28.5, color: '#7ec87e' },
+        { name: 'Дети', value: 18.7, color: '#4a90d9' },
+        { name: 'Пожилые', value: 11.6, color: '#e67e22' },
       ],
       monthly: [
-        { name: 'Male',    value: 36.1, color: '#1a1d23' },
-        { name: 'Female',  value: 27.3, color: '#7ec87e' },
-        { name: 'Kids',    value: 20.4, color: '#4a90d9' },
-        { name: 'Elderly', value: 10.2, color: '#e67e22' },
-        { name: 'Unknown', value:  6.0, color: '#e8eaf0' },
+        { name: 'Мужчины',    value: 36.1, color: '#1a1d23' },
+        { name: 'Женщины',  value: 27.3, color: '#7ec87e' },
+        { name: 'Дети',    value: 20.4, color: '#4a90d9' },
+        { name: 'Пожилые', value: 10.2, color: '#e67e22' },
       ],
     };
   },
