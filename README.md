@@ -1,60 +1,75 @@
-🌿 Панель аналитики парка (Park Analytics Dashboard)
+# 🌿 Park Analytics Dashboard
 
-React + Recharts + чистый CSS (без Tailwind)
+React + CSS dashboard
 
-🚀 Запуск проекта
+---
+
+## 🚀 Ishga tushirish
+
+```bash
 npm install
 npm run dev
-
 # → http://localhost:3000
+```
 
-📁 Структура проекта
+---
 
+## 📁 Fayl strukturasi
+
+```
 park-analytics/
 ├── public/
-│   └── index.html
+│   └── index.html             # HTML template, Google Fonts
 │
 ├── src/
 │   ├── api/
-│   │   └── analyticsApi.js
+│   │   └── analyticsApi.js    # ⭐ API layer (mock + real rejim)
 │   │
 │   ├── hooks/
-│   │   └── useAnalyticsData.js
+│   │   └── useAnalyticsData.js # Data fetching + auto-refresh hook
 │   │
 │   ├── components/
-│   │   ├── Sidebar.jsx
-│   │   ├── StatCard.jsx
-│   │   ├── VisitorActivityChart.jsx
-│   │   ├── PeakLoadChart.jsx
-│   │   ├── TrafficGenderChart.jsx
-│   │   └── CamerasPage.jsx
+│   │   ├── Sidebar.jsx         # Navigatsiya
+│   │   ├── StatCard.jsx        # KPI karta
+│   │   ├── VisitorActivityChart.jsx  # Chiziqli grafik
+│   │   ├── PeakLoadChart.jsx   # Ustunli grafik
+│   │   ├── TrafficGenderChart.jsx    # Donut chart
+│   │   └── CamerasPage.jsx     # Kameralar sahifasi
 │   │
 │   ├── styles/
-│   │   ├── global.css
+│   │   ├── global.css          # CSS variables, layout, utility
 │   │   ├── sidebar.css
 │   │   ├── statcard.css
 │   │   ├── charts.css
 │   │   └── cameras.css
 │   │
-│   ├── App.jsx
-│   └── main.jsx
+│   ├── App.jsx                 # Asosiy sahifa va routing
+│   └── main.jsx                # React entry point
 │
-├── .env.example
+├── .env.example               # Environment variables namunasi
 ├── package.json
 └── vite.config.js
+```
 
-🔌 Подключение к API
+---
 
-analyticsApi.js
-const USE_MOCK = false;
+## 🔌 Real API ga ulash
+
+### 1. `analyticsApi.js` ni oching:
+
+```js
+const USE_MOCK = false;  // ← shu qatorni o'zgartiring
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+```
 
+### 2. `.env` fayl yarating:
+```bash
+cp .env.example .env
+```
 
-📊 API форматы
-GET /stats/overview
-{
-  "nowInPark": { "value": 721000, "change": 11.01 },
-  "loginsToday": { "value": 527000, "change": -0.03 },
-  "outputsToday": { "value": 1156, "change": 15.03 },
-  "avgPerWeek": { "value": 239000, "change": 6.08 }
-}
+## 📦 Build (production)
+
+```bash
+npm run build
+# dist/ papkasi tayyor
+```
