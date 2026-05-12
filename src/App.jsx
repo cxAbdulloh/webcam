@@ -15,7 +15,7 @@ function Spinner() {
     return (
         <div className="loading-overlay">
             <div className="spinner" />
-            Загрузка...
+            Loading...
         </div>
     );
 }
@@ -52,8 +52,8 @@ export default function App() {
                     <>
                         <div className="dashboard-header" style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <div>
-                                <h1>Аналитика парка</h1>
-                                <p>Обзор активности посетителей в реальном времени</p>
+                                <h1>Park Analytics</h1>
+                                <p>Real-time visitor activity overview</p>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@ export default function App() {
 
                         {error && <div className="error-msg">⚠ {error}</div>}
 
-                        <p className="block-label">Обзор</p>
+                        <p className="block-label">Overview</p>
 
                         {loading || !data.stats ? (
                             <div className="stat-cards-grid">
@@ -75,15 +75,15 @@ export default function App() {
                             </div>
                         ) : (
                             <div className="stat-cards-grid">
-                                <StatCard label="Сейчас в парке" value={data.stats.nowInPark.value} change={data.stats.nowInPark.change} />
-                                <StatCard label="Входы сегодня" value={data.stats.loginsToday.value} change={data.stats.loginsToday.change} />
-                                <StatCard label="Выходы сегодня" value={data.stats.outputsToday.value} change={data.stats.outputsToday.change} />
-                                <StatCard label="Среднее / неделя" value={data.stats.avgPerWeek.value} change={data.stats.avgPerWeek.change} />
+                                <StatCard label="Now in the park"  value={data.stats.nowInPark.value}    change={data.stats.nowInPark.change} />
+                                <StatCard label="Logins today"     value={data.stats.loginsToday.value}  change={data.stats.loginsToday.change} />
+                                <StatCard label="Outputs today"    value={data.stats.outputsToday.value} change={data.stats.outputsToday.change} />
+                                <StatCard label="Average / week"   value={data.stats.avgPerWeek.value}   change={data.stats.avgPerWeek.change} />
                             </div>
                         )}
 
                         <p className="block-label" style={{ marginTop: 16 }}>
-                            Активность посетителей
+                            Visitor Activity
                         </p>
 
                         {loading || !data.visitorActivity
@@ -95,7 +95,7 @@ export default function App() {
 
                             <div>
                                 <p className="block-label" style={{ marginTop: 16 }}>
-                                    Пиковая нагрузка
+                                    Peak Load
                                 </p>
 
                                 {loading || !data.peakLoad
@@ -106,7 +106,7 @@ export default function App() {
 
                             <div>
                                 <p className="block-label" style={{ marginTop: 16 }}>
-                                    Трафик по категориям
+                                    Traffic by Category
                                 </p>
 
                                 {loading || !data.genderTraffic
@@ -122,8 +122,8 @@ export default function App() {
                 {activeNav === 'cameras' && (
                     <>
                         <div className="dashboard-header">
-                            <h1>Камеры</h1>
-                            <p>Мониторинг камер в реальном времени</p>
+                            <h1>Cameras</h1>
+                            <p>Live camera monitoring</p>
                         </div>
                         <CamerasPage />
                     </>
@@ -131,11 +131,10 @@ export default function App() {
 
                 {activeNav === 'settings' && (
                     <div className="dashboard-header">
-                        <h1>Настройки</h1>
-                        <p>Скоро будет доступно</p>
+                        <h1>Settings</h1>
+                        <p>Coming soon</p>
                     </div>
                 )}
-
             </main>
         </div>
     );
